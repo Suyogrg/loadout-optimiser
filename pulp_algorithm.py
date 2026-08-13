@@ -8,7 +8,7 @@ class PulpAlgorithm(Optimiser):
 
         prob = pulp.LpProblem("Loadout_Optimization", pulp.LpMaximize)
         x = {
-            i: pulp.LpVariable(f"x_{i}", cat="Binary")
+            i: prob.add_variable(f"x_{i}", cat="Binary")
             for i in range(len(items))
         }
         prob += pulp.lpSum(calculate(items[i], weights) * x[i] for i in x)
