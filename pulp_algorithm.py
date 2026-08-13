@@ -20,6 +20,7 @@ class PulpAlgorithm(Optimiser):
         prob += pulp.lpSum(x[i] for i in x if items[i].group == "ability2") <= constraints["ability2"]
         prob += pulp.lpSum(x[i] for i in x if items[i].group == "ability3") <= constraints["ability3"]
         prob.solve()
-        solution = [items[i] for i in x if pulp.value(x[i]) == 1]
+        selected = [items[i] for i in x if pulp.value(x[i]) == 1]
+        total_value = sum(calculate(item, weights) for item in selected)
 
-        return Loadout(solution)
+        return Loadout(selected, total_value)

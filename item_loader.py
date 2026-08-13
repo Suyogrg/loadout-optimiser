@@ -18,15 +18,10 @@ def load_items():
             slots=item_data.get("slots"),
             agent=item_data.get("agent")
         )
-        items.append(item)
+        if item.slots != None:
+            for i in range(item.slots):
+                items.append(item)
+        else:
+            items.append(item)
+
     return items
-
-def get_items(items, credits, selected_agent):
-    filtered_items = []
-
-    for item in items:
-        if item.agent == selected_agent or item.agent == None:
-            if item.cost <= credits:
-                filtered_items.append(item)
-
-    return filtered_items

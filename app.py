@@ -1,26 +1,25 @@
 from flask import Flask, render_template, request
-from item_loader import load_items, get_items
+from item_loader import load_items
+from loadout_service import get_agents, generate
 
 app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+
+    items = load_items()
+    agents = get_agents(items)
+
     if request.method == "POST":
-
         credits = int(request.form["credits"])
-        selected_agent = request.form["agent"]
-
-        items = load_items()
-        filtered_items = get_items(items, credits, selected_agent)
-
-        return render_template(
-            "index.html",
-            credits=credits,
-            selected_agent=selected_agent,
-            items=filtered_items
-        )
+        agent = request.form["agent"]
+        weights = {"offensive": 0.25, "defensive": 0.25, "utility": 0.25, "versatility": 0.25}
+        loadout = generate(items, agent, credits, weights)
+        
+        return render_template("result.html", loadout=loadout, agent=agent, credits=credits)
+    
     else:
-        return render_template("index.html")
+        return render_template("index.html", agents=agents)
 
 if __name__ == "__main__":
     app.run(debug=False)

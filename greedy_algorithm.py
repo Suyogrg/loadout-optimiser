@@ -14,8 +14,10 @@ class GreedyAlgorithm(Optimiser):
             reverse=True
         )
         selected = []
+        total_value = 0
         for item in sorted_items:
             if is_valid(selected + [item], constraints):
                 selected.append(item)
+                total_value += calculate(item, weights)
 
-        return Loadout(selected)
+        return Loadout(selected, total_value)

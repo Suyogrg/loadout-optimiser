@@ -23,4 +23,4 @@ class BruteAlgorithm(Optimiser):
 
         selected, total_value = search(0, [])
 
-        return Loadout(selected)
+        return Loadout(selected, total_value)

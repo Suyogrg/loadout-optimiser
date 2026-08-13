@@ -20,6 +20,7 @@ def test_optimise():
     brute = BruteAlgorithm()
     result = brute.optimise(items,constraints(),weights())
     assert result.items[0].name == "A"
+    assert result.value == 0.5
 
 def test_optimise_budget():
     items = [Item("A",500,0.5,0.0,0.0,0.0,"primary"),

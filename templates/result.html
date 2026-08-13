@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Recommended Loadout</title>
+</head>
+<body>
+    <h1>Recommended Loadout</h1>
+    <p>Agent: {{ agent }}</p>
+    <p>Credits: {{ credits }}</p>
+
+    <h2>Items</h2>
+    <ul>
+        {% for item in loadout.items %}
+            <li>
+                {{ item.name }} - {{ item.cost }} credits
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        Total Cost: {{ loadout.cost() }}
+    </p>
+    <p>
+        Total Value: {{ loadout.value }}
+    </p>
+</body>
+</html>
