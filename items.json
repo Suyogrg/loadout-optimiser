@@ -22,9 +22,9 @@
     {"name": "Regen Shields", "cost": 650, "offensive": 0.25, "defensive": 0.85, "utility": 0.15, "versatility": 0.85, "group": "shield"},
     {"name": "Light Shields", "cost": 400, "offensive": 0.1, "defensive": 0.65, "utility": 0.05, "versatility": 0.7, "group": "shield"},
     {"name": "Shrouded Step", "cost": 100, "offensive": 0.2, "defensive": 0.6, "utility": 0.45, "versatility": 0.65, "group": "ability1", "slots": 2, "agent": "Omen"},
-    {"name": "Paranoia", "cost": 250, "offensive": 0.7, "defensive": 0.7, "utility": 0.85, "versatility": 0.7, "group": "ability2", "slots": 1, "agent": "Omen"},
+    {"name": "Paranoia", "cost": 250, "offensive": 0.5, "defensive": 0.7, "utility": 0.85, "versatility": 0.7, "group": "ability2", "slots": 1, "agent": "Omen"},
     {"name": "Dark Cover", "cost": 150, "offensive": 0.15, "defensive": 0.9, "utility": 0.95, "versatility": 0.9, "group": "ability3", "slots": 1, "agent": "Omen"},
     {"name": "Cloudburst", "cost": 200, "offensive": 0.2, "defensive": 0.75, "utility": 0.7, "versatility": 0.65, "group": "ability1", "slots": 2, "agent": "Jett"},
     {"name": "Updraft", "cost": 150, "offensive": 0.2, "defensive": 0.45, "utility": 0.4, "versatility": 0.35, "group": "ability2", "slots": 1, "agent": "Jett"},
-    {"name": "Tailwind", "cost": 0, "offensive": 0.35, "defensive": 0.7, "utility": 0.55, "versatility": 0.7, "group": "ability3", "slots": 1, "agent": "Jett"}
+    {"name": "Tailwind", "cost": 0, "offensive": 0.3, "defensive": 0.7, "utility": 0.55, "versatility": 0.7, "group": "ability3", "slots": 1, "agent": "Jett"}
 ]

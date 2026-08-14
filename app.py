@@ -26,10 +26,18 @@ def index():
         if not agent or agent not in agents:
             errors.append("Invalid agent.")
 
+        weights = {
+            "offensive": int(request.form.get("offensive"))/100,
+            "defensive": int(request.form.get("defensive"))/100,
+            "utility": int(request.form.get("utility"))/100,
+            "versatility": int(request.form.get("versatility"))/100
+        }
+        if sum(weights.values()) != 1:
+            errors.append("Weights must add up to 100%.")
+
         if errors:
             return render_template("index.html", agents=agents, errors=errors)
 
-        weights = {"offensive": 0.25, "defensive": 0.25, "utility": 0.25, "versatility": 0.25}
         loadout = generate(items, agent, credits, weights)
 
         return render_template("result.html", loadout=loadout, agent=agent, credits=credits)
