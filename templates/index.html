@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Valorant Loadout Optimisation Tool</title>
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
     <h1>Valorant Loadout Optimisation Tool</h1>
@@ -19,22 +20,24 @@
             {% endfor %}
         </select>
         <br><br>
-        <div class="mb-3">
+        <div class="weight-slider">
             <label for="offensive">Offensive: <span id="offensive-value">25%</span></label>
-            <input type="range" class="form-range" id="offensive" name="offensive" min="0" max="100" value="25">
+            <input type="range" id="offensive" name="offensive" min="0" max="100" value="25">
         </div>
-        <div class="mb-3">
+        <div class="weight-slider">
             <label for="defensive">Defensive: <span id="defensive-value">25%</span></label>
-            <input type="range" class="form-range" id="defensive" name="defensive" min="0" max="100" value="25">
+            <input type="range" id="defensive" name="defensive" min="0" max="100" value="25">
         </div>
-        <div class="mb-3">
+        <div class="weight-slider">
             <label for="utility">Utility: <span id="utility-value">25%</span></label>
-            <input type="range" class="form-range" id="utility" name="utility" min="0" max="100" value="25">
+            <input type="range" id="utility" name="utility" min="0" max="100" value="25">
         </div>
-        <div class="mb-3">
+        <div class="weight-slider">
             <label for="versatility">Versatility: <span id="versatility-value">25%</span></label>
-            <input type="range" class="form-range" id="versatility" name="versatility" min="0" max="100" value="25">
+            <input type="range" id="versatility" name="versatility" min="0" max="100" value="25">
         </div>
+        <p>Total: <span id="weight-total">100%</span></p>
+        <p id="weight-error"></p>
         <br><br>
         <button type="submit">Optimise</button>
     </form>
