@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 from pulp_algorithm import PulpAlgorithm
 from greedy_algorithm import GreedyAlgorithm
@@ -17,13 +18,17 @@ def run_experiment(items, budget, weights, results):
             "ability2": 1,
             "ability3": 1
         }
+        start = time.perf_counter()
         loadout = algorithm.optimise(items, constraints, weights)
+        end = time.perf_counter()
+        duration = end - start
         results.append({
             "budget": budget,
             "algorithm": name,
             "value": loadout.value,
             "cost": loadout.cost(),
-            "count": len(loadout.items)
+            "count": len(loadout.items),
+            "duration": duration
         })
 
     return results
