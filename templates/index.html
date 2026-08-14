@@ -20,5 +20,14 @@
         <br><br>
         <button type="submit">Optimise</button>
     </form>
+    {% if errors %}
+    <div>
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 </body>
 </html>

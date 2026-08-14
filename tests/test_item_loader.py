@@ -1,4 +1,4 @@
-from item_loader import load_items, get_items
+from item_loader import load_items
 from item import Item
 
 def test_load_items():

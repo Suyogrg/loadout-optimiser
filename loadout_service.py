@@ -6,7 +6,7 @@ def get_agents(items):
 def generate(items, agent, credits, weights):
     filtered = [item for item in items if item.agent == agent or item.agent == None]
     for item in filtered:
-        if item.slots != None:
+        if item.slots is not None:
             if item.group == "ability1":
                 ability1 = item.slots
             if item.group == "ability2":

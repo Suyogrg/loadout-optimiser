@@ -18,7 +18,7 @@ def load_items():
             slots=item_data.get("slots"),
             agent=item_data.get("agent")
         )
-        if item.slots != None:
+        if item.slots is not None:
             for i in range(item.slots):
                 items.append(item)
         else:
