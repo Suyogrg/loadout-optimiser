@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #111823;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.box {
+    background-color: #ff4655;
+    color: white;
+    margin: 0 auto;
+    width: 35%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+#credits, #agent {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=range] {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.weight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    width: 100%;
+    background-color: #111823;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: auto;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: #111823
+}
+
+.home-button {
+    width: 96%;
+    background-color: #111823;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.home-button:hover {
+    background-color: white;
+    color: #111823
+}
+
+.info {
+    text-align: center;
+    font-weight: bold;
+}
+
+.recommendation {
+    background-color: #111823;
+    border-radius: 10px;
+    padding: 5px 10px;
+}

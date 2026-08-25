@@ -13,8 +13,6 @@ const values = {
 };
 
 const totalDisplay = document.getElementById("weight-total");
-const errorDisplay = document.getElementById("weight-error");
-
 
 function updateWeights() {
     let total = 0;
@@ -24,12 +22,6 @@ function updateWeights() {
         total += value;
     }
     totalDisplay.textContent = `${total}%`;
-    if (total === 100) {
-        errorDisplay.textContent = "";
-    } else {
-        errorDisplay.textContent =
-            "Weights must add up to 100%.";
-    }
 }
 
 for (const name in sliders) {

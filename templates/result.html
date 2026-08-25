@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Recommended Loadout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <h1>Recommended Loadout</h1>
-    <p>Agent: {{ agent }}</p>
-    <p>Credits: {{ credits }}</p>
+    <div class="box">
+        <p class="info">Agent: {{ agent }} | Credits: {{ credits }}</p>
 
-    <h2>Items</h2>
-    <ul>
-        {% for item in loadout.items %}
-            <li>
-                {{ item.name }} - {{ item.cost }} credits
-            </li>
-        {% endfor %}
-    </ul>
-    <p>
-        Total Cost: {{ loadout.cost() }}
-    </p>
-    <p>
-        Total Value: {{ loadout.value }}
-    </p>
+        <p class="info">Total Cost: {{ loadout.cost() }} | Loadout Value: {{ loadout.value }}</p>
+
+        <div class="recommendation">
+            <h2>Recommended Items</h2>
+            {% for item in loadout.items %}
+                <p>
+                    {{ item.name }} - {{ item.cost }} credits
+                </p>
+            {% endfor %}
+        </div>
+        <br>
+        <a href="/" class="home-button">Create New Loadout</a>
+    </div>
 </body>
 </html>
