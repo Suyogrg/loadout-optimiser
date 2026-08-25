@@ -4,51 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Valorant Loadout Optimisation Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
     <h1>Valorant Loadout Optimisation Tool</h1>
-    <form method="POST">
-        <label for="credits">Credits:</label>
-        <input type="number" id="credits" name="credits" min="0" required>
-        <br><br>
-        <label for="agent">Agent:</label>
-        <select id="agent" name="agent" required>
-            <option value="">Select an agent</option>
-            {% for agent in agents %}
-                <option value="{{ agent }}">{{ agent }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-        <div class="weight-slider">
-            <label for="offensive">Offensive: <span id="offensive-value">25%</span></label>
-            <input type="range" id="offensive" name="offensive" min="0" max="100" value="25">
+    <div class="box">
+        <form method="POST">
+            <label for="credits">Credits</label>
+            <input type="number" id="credits" name="credits" required>
+            <br><br>
+            <label for="agent">Agent</label>
+            <select id="agent" name="agent" required>
+                <option value="">Select an agent</option>
+                {% for agent in agents %}
+                    <option value="{{ agent }}">{{ agent }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <div class="weight-slider">
+                <div class="weight-header">
+                    <label for="offensive">Offensive</label>
+                    <span id="offensive-value">25%</span>
+                </div>
+                <input type="range" id="offensive" name="offensive" min="0" max="100" value="25">
+            </div>
+            <div class="weight-slider">
+                <div class="weight-header">
+                    <label for="defensive">Defensive</label>
+                    <span id="defensive-value">25%</span>
+                </div>
+                <input type="range" id="defensive" name="defensive" min="0" max="100" value="25">
+            </div>
+            <div class="weight-slider">
+                <div class="weight-header">
+                    <label for="utility">Utility</label>
+                    <span id="utility-value">25%</span>
+                </div>
+                <input type="range" id="utility" name="utility" min="0" max="100" value="25">
+            </div>
+            <div class="weight-slider">
+                <div class="weight-header">
+                    <label for="versatility">Versatility</label>
+                    <span id="versatility-value">25%</span>
+                </div>
+                <input type="range" id="versatility" name="versatility" min="0" max="100" value="25">
+            </div>
+            <p>Total: <span id="weight-total">100%</span></p>
+            <p id="weight-error"></p>
+            <br>
+            <button type="submit">Optimise</button>
+        </form>
+        {% if errors %}
+        <div>
+            <br>
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
         </div>
-        <div class="weight-slider">
-            <label for="defensive">Defensive: <span id="defensive-value">25%</span></label>
-            <input type="range" id="defensive" name="defensive" min="0" max="100" value="25">
-        </div>
-        <div class="weight-slider">
-            <label for="utility">Utility: <span id="utility-value">25%</span></label>
-            <input type="range" id="utility" name="utility" min="0" max="100" value="25">
-        </div>
-        <div class="weight-slider">
-            <label for="versatility">Versatility: <span id="versatility-value">25%</span></label>
-            <input type="range" id="versatility" name="versatility" min="0" max="100" value="25">
-        </div>
-        <p>Total: <span id="weight-total">100%</span></p>
-        <p id="weight-error"></p>
-        <br><br>
-        <button type="submit">Optimise</button>
-    </form>
-    {% if errors %}
-    <div>
-        <ul>
-            {% for error in errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
+        {% endif %}
     </div>
-    {% endif %}
 </body>
 </html>
